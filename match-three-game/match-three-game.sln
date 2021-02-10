@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "match-three-game", "match-three-game\match-three-game.csproj", "{339608E1-796A-4EE2-9DDD-650B577B1AD1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{339608E1-796A-4EE2-9DDD-650B577B1AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339608E1-796A-4EE2-9DDD-650B577B1AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339608E1-796A-4EE2-9DDD-650B577B1AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339608E1-796A-4EE2-9DDD-650B577B1AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38C722C3-67F6-4048-BDE9-A4D240AB0727}
+	EndGlobalSection
+EndGlobal
