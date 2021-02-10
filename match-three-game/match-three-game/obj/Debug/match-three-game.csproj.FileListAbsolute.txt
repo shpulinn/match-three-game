@@ -1,0 +1,10 @@
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\bin\Debug\match-three-game.exe.config
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\bin\Debug\match-three-game.exe
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\bin\Debug\match-three-game.pdb
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.csprojAssemblyReference.cache
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match_three_game.MenuForm.resources
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match_three_game.Properties.Resources.resources
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.csproj.GenerateResource.cache
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.csproj.CoreCompileInputs.cache
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.exe
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.pdb
