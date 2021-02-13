@@ -17,6 +17,7 @@ namespace match_three_game {
         private void playButton_Click(object sender, EventArgs e) {
             GameForm gameForm = new GameForm();
             gameForm.Show();
+            this.Hide();
         }
     }
 }
