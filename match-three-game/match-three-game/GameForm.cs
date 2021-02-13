@@ -9,14 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace match_three_game {
-    public partial class MenuForm : Form {
-        public MenuForm() {
+    public partial class GameForm : Form {
+        public GameForm() {
             InitializeComponent();
-        }
-
-        private void playButton_Click(object sender, EventArgs e) {
-            GameForm gameForm = new GameForm();
-            gameForm.Show();
         }
     }
 }
