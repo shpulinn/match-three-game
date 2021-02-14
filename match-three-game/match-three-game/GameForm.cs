@@ -38,7 +38,7 @@ namespace match_three_game {
 
             for (int i = 0; i < 8; i++) {
                 for (int j = 0; j < 8; j++) {
-                    randInt[i, j] = rand.Next(0, 4);
+                    randInt[i, j] = rand.Next(0, 5);
                     //randInt[i, j] = 1;
                 }
             }
@@ -48,8 +48,24 @@ namespace match_three_game {
                 for (int j = 0; j < dataGridView1.RowCount; j++) {
 
                     switch (randInt[i,j]) {
+                        case 0:
+                            ((DataGridViewImageCell)dataGridView1.Rows[i].Cells[j]).Value = Properties.Resources.banana;
+                        break;
+                            
                         case 1:
                             ((DataGridViewImageCell)dataGridView1.Rows[i].Cells[j]).Value = Properties.Resources.orange;
+                        break;
+
+                        case 2:
+                            ((DataGridViewImageCell)dataGridView1.Rows[i].Cells[j]).Value = Properties.Resources.apple;
+                        break;
+
+                        case 3:
+                        ((DataGridViewImageCell)dataGridView1.Rows[i].Cells[j]).Value = Properties.Resources.grape;
+                        break;
+
+                        case 4:
+                        ((DataGridViewImageCell)dataGridView1.Rows[i].Cells[j]).Value = Properties.Resources.pear;
                         break;
                     }
 
