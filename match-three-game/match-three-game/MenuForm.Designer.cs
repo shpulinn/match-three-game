@@ -74,6 +74,7 @@ namespace match_three_game {
             this.DoubleBuffered = true;
             this.Name = "MenuForm";
             this.Text = "Match3Game";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MenuForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

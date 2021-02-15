@@ -19,5 +19,9 @@ namespace match_three_game {
             gameForm.Show();
             this.Hide();
         }
+
+        private void MenuForm_FormClosed(object sender, FormClosedEventArgs e) {
+            Application.Exit();
+        }
     }
 }
