@@ -25,7 +25,7 @@ namespace match_three_game {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gameGrid = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewImageColumn();
@@ -41,6 +41,7 @@ namespace match_three_game {
             this.menuButton = new System.Windows.Forms.Button();
             this.scoreLabel = new System.Windows.Forms.Label();
             this.scoreLabelTitle = new System.Windows.Forms.Label();
+            this.gameOverLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gameGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,14 +63,14 @@ namespace match_three_game {
             this.Column6,
             this.Column7,
             this.Column8});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(197)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gameGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(236)))), ((int)(((byte)(197)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gameGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.gameGrid.Location = new System.Drawing.Point(246, 28);
             this.gameGrid.MultiSelect = false;
             this.gameGrid.Name = "gameGrid";
@@ -78,6 +79,7 @@ namespace match_three_game {
             this.gameGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.gameGrid.Size = new System.Drawing.Size(490, 490);
             this.gameGrid.TabIndex = 0;
+            this.gameGrid.SelectionChanged += new System.EventHandler(this.gameGrid_SelectionChanged);
             this.gameGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gameGrid_MouseClick);
             // 
             // Column1
@@ -138,6 +140,7 @@ namespace match_three_game {
             this.timeLabelTitle.AutoSize = true;
             this.timeLabelTitle.BackColor = System.Drawing.Color.Transparent;
             this.timeLabelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timeLabelTitle.ForeColor = System.Drawing.Color.OrangeRed;
             this.timeLabelTitle.Location = new System.Drawing.Point(769, 63);
             this.timeLabelTitle.Name = "timeLabelTitle";
             this.timeLabelTitle.Size = new System.Drawing.Size(102, 39);
@@ -149,6 +152,7 @@ namespace match_three_game {
             this.timeLabel.AutoSize = true;
             this.timeLabel.BackColor = System.Drawing.Color.Transparent;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.timeLabel.ForeColor = System.Drawing.Color.OrangeRed;
             this.timeLabel.Location = new System.Drawing.Point(769, 115);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(0, 39);
@@ -171,6 +175,7 @@ namespace match_three_game {
             this.scoreLabel.AutoSize = true;
             this.scoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.scoreLabel.ForeColor = System.Drawing.Color.OrangeRed;
             this.scoreLabel.Location = new System.Drawing.Point(55, 115);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(0, 39);
@@ -181,11 +186,25 @@ namespace match_three_game {
             this.scoreLabelTitle.AutoSize = true;
             this.scoreLabelTitle.BackColor = System.Drawing.Color.Transparent;
             this.scoreLabelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.scoreLabelTitle.ForeColor = System.Drawing.Color.OrangeRed;
             this.scoreLabelTitle.Location = new System.Drawing.Point(55, 63);
             this.scoreLabelTitle.Name = "scoreLabelTitle";
             this.scoreLabelTitle.Size = new System.Drawing.Size(115, 39);
             this.scoreLabelTitle.TabIndex = 4;
             this.scoreLabelTitle.Text = "Score:";
+            // 
+            // gameOverLabel
+            // 
+            this.gameOverLabel.AutoSize = true;
+            this.gameOverLabel.BackColor = System.Drawing.Color.Transparent;
+            this.gameOverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 40F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gameOverLabel.ForeColor = System.Drawing.Color.OrangeRed;
+            this.gameOverLabel.Location = new System.Drawing.Point(324, 115);
+            this.gameOverLabel.Name = "gameOverLabel";
+            this.gameOverLabel.Size = new System.Drawing.Size(362, 63);
+            this.gameOverLabel.TabIndex = 6;
+            this.gameOverLabel.Text = "GAME OVER";
+            this.gameOverLabel.Visible = false;
             // 
             // GameForm
             // 
@@ -193,6 +212,7 @@ namespace match_three_game {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::match_three_game.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.scoreLabelTitle);
             this.Controls.Add(this.menuButton);
@@ -226,5 +246,6 @@ namespace match_three_game {
         private System.Windows.Forms.Button menuButton;
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label scoreLabelTitle;
+        private System.Windows.Forms.Label gameOverLabel;
     }
 }

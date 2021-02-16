@@ -13,9 +13,11 @@ namespace match_three_game {
 
         Random rand = new Random();
         int[,] randInt = new int[8, 8];
-        int gameTime = 7;
+        int gameTime = 40; // GAME TIME IN SECONDS
         int score = 0;
         bool inGame = true;
+        DataGridViewCell currentCell;
+        bool moved = false;
 
         public GameForm() {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace match_three_game {
         private void GameForm_Load(object sender, EventArgs e) {
 
             gameGrid.CurrentCell = null;
+            gameGrid.ClearSelection();
             FillBoard();
             gameTimer.Start();
             // while inGame///
@@ -40,7 +43,7 @@ namespace match_three_game {
                                         gameGrid.CurrentCell.RowIndex,
                                         gameGrid.CurrentCell.ColumnIndex);
             MessageBox.Show(msg, "Current Cell");
-            var curCell = gameGrid.CurrentCell;
+            currentCell = gameGrid.CurrentCell;
             for (int i = 0; i < randInt.Length; i++) {
                 for (int j = 0; j < randInt.Length; j++) {
                     if (copyArr[i,j] != randInt[i,j]) {
@@ -53,9 +56,8 @@ namespace match_three_game {
         }
 
         private void UpdateGrid() {
-            for (int i = 0; i < randInt.Length; i++) {
-                for (int j = 0; j < randInt.Length; j++) {
-                    // костылЬ!!
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
                     switch (randInt[i, j]) {
                         case 0: // banana
                         ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.banana;
@@ -79,7 +81,6 @@ namespace match_three_game {
                     }
                 }
             }
-
         }
 
         private void FillBoard() {
@@ -89,33 +90,8 @@ namespace match_three_game {
                     //randInt[i, j] = 1;
                 }
             }
-
-            // ======================================================= добавление в DataGridView иконок в зависимости от случ. числа
-            for (int i = 0; i < gameGrid.ColumnCount; i++) {
-                for (int j = 0; j < gameGrid.RowCount; j++) {
-                    switch (randInt[i, j]) {
-                        case 0: // banana
-                        ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.banana;
-                        break;
-
-                        case 1: //orange
-                        ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.orange;
-                        break;
-
-                        case 2: //apple
-                        ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.apple;
-                        break;
-
-                        case 3: //grape
-                        ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.grape;
-                        break;
-
-                        case 4: //pear
-                        ((DataGridViewImageCell)gameGrid.Rows[i].Cells[j]).Value = Properties.Resources.pear;
-                        break;
-                    }
-                }
-            }
+            // добавление в DataGridView иконок в зависимости от случ. числа
+            UpdateGrid();
         }
 
         private void GameForm_FormClosed(object sender, FormClosedEventArgs e) {
@@ -129,6 +105,8 @@ namespace match_three_game {
             }
             else {
                 gameTimer.Stop();
+                gameGrid.Visible = false;
+                gameOverLabel.Visible = true;
                 timeLabel.Text = "Time's up!";
                 menuButton.Visible = true;
                 inGame = false;
@@ -142,10 +120,51 @@ namespace match_three_game {
         }
 
         private void gameGrid_MouseClick(object sender, MouseEventArgs e) {
-            string msg = String.Format("Row: {0}, Column: {1}",
-        gameGrid.CurrentCell.RowIndex,
-        gameGrid.CurrentCell.ColumnIndex);
-            MessageBox.Show(msg, "Current Cell");
+            if (moved && currentCell == null || currentCell != gameGrid.CurrentCell ) {
+                currentCell = gameGrid.CurrentCell;
+                gameGrid.CurrentCell = null;
+                gameGrid.ClearSelection();
+            }
+            else currentCell = null;
+            
+        }
+
+        private void gameGrid_SelectionChanged(object sender, EventArgs e) {
+            int[,] copyArr = new int[8, 8];
+            //currentCell = null;
+            if (currentCell != null) {
+                if (currentCell != gameGrid.CurrentCell) {
+                    //for (int i = 0; i < randInt.Length; i++) {
+                    //    for (int j = 0; j < randInt.Length; j++) {
+                    //        //if (copyArr[i, j] != randInt[i, j]) {
+
+                    //        //}
+                    //        copyArr[i, j] = randInt[i, j];
+
+
+                    //    }
+
+
+                    //}
+
+                    int tempValue = randInt[currentCell.RowIndex, currentCell.ColumnIndex];
+                    // меняю только массив
+                    if (Math.Abs(gameGrid.CurrentCell.RowIndex - currentCell.RowIndex) > 1 && Math.Abs(gameGrid.CurrentCell.ColumnIndex - currentCell.ColumnIndex) > 1) {
+                        currentCell = null;
+                        gameGrid.ClearSelection();
+                        moved = false;
+                        return;
+                    }
+                    randInt[currentCell.RowIndex, currentCell.ColumnIndex] = randInt[gameGrid.CurrentCell.RowIndex, gameGrid.CurrentCell.ColumnIndex];
+                    randInt[gameGrid.CurrentCell.RowIndex, gameGrid.CurrentCell.ColumnIndex] = tempValue;
+                    //UpdateGrid();
+                    currentCell = null;
+                    gameGrid.ClearSelection();
+                    UpdateGrid();
+                    moved = true;
+                }
+            }
+            else return;
         }
     }
 }
