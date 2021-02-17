@@ -42,6 +42,8 @@ namespace match_three_game {
             this.scoreLabel = new System.Windows.Forms.Label();
             this.scoreLabelTitle = new System.Windows.Forms.Label();
             this.gameOverLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gameGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,10 +79,11 @@ namespace match_three_game {
             this.gameGrid.RowHeadersVisible = false;
             this.gameGrid.RowTemplate.Height = 50;
             this.gameGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.gameGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gameGrid.Size = new System.Drawing.Size(490, 490);
             this.gameGrid.TabIndex = 0;
+            this.gameGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gameGrid_CellClick);
             this.gameGrid.SelectionChanged += new System.EventHandler(this.gameGrid_SelectionChanged);
-            this.gameGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gameGrid_MouseClick);
             // 
             // Column1
             // 
@@ -206,12 +209,30 @@ namespace match_three_game {
             this.gameOverLabel.Text = "GAME OVER";
             this.gameOverLabel.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(65, 230);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(68, 275);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 8;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::match_three_game.Properties.Resources.background;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.gameOverLabel);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.scoreLabelTitle);
@@ -247,5 +268,7 @@ namespace match_three_game {
         private System.Windows.Forms.Label scoreLabel;
         private System.Windows.Forms.Label scoreLabelTitle;
         private System.Windows.Forms.Label gameOverLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
