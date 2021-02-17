@@ -8,3 +8,4 @@ D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debu
 D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.csproj.CoreCompileInputs.cache
 D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.exe
 D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match-three-game.pdb
+D:\MyRepo\MatchThree\match-three-game\match-three-game\match-three-game\obj\Debug\match_three_game.GameForm.resources
